@@ -32,7 +32,7 @@ class Md1EintObj(ModuleObj):
 
     def get_cfgInfo(self):
         # ConfigParser accept ":" and "=", so SRC_PIN will be treated specially
-        cp = configparser.ConfigParser(allow_no_value=True)
+        cp = configparser.ConfigParser(allow_no_value=True, strict=False)
         cp.read(ModuleObj.get_figPath())
 
         if cp.has_option('Chip Type', 'MD1_EINT_SRC_PIN'):

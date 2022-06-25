@@ -39,7 +39,7 @@ class PmicObj(ModuleObj):
 
 
     def get_cfgInfo(self):
-        cp = configparser.ConfigParser(allow_no_value=True)
+        cp = configparser.ConfigParser(allow_no_value=True, strict=False)
         cp.read(ModuleObj.get_cmpPath())
 
         PmicData._var_list = cp.options('APPLICATION')

@@ -31,7 +31,7 @@ class PowerObj(ModuleObj):
         self.__list = {}
 
     def getCfgInfo(self):
-        cp = configparser.ConfigParser(allow_no_value=True)
+        cp = configparser.ConfigParser(allow_no_value=True, strict=False)
         cp.read(ModuleObj.get_figPath())
 
         self.__list = cp.options('POWER')
