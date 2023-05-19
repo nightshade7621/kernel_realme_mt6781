@@ -2,13 +2,9 @@
 # Copyright (C) 2018-2020 Oplus. All rights reserved.
 
 obj-y 	+= platform.o
-obj-$(CONFIG_OPLUS_FEATURE_FEEDBACK) 	+= feedback/
 obj-$(CONFIG_OPLUS_FEATURE_UBOOT_LOG) 	+= uboot_log/
-obj-$(CONFIG_OPLUS_FEATURE_SHUTDOWN_DETECT)    += shutdown_detect/
 obj-$(CONFIG_OPLUS_FEATURE_OPROJECT) 	+= oplus_project/
 obj-$(CONFIG_OPLUS_FEATURE_QCOM_MINIDUMP_ENHANCE) 	+= qcom_minidump/
-obj-$(CONFIG_OPLUS_FEATURE_HUNG_TASK_ENHANCE) += hung_task_enhance/
-obj-$(CONFIG_OPLUS_FEATURE_PHOENIX)     += oplus_phoenix/
 obj-$(CONFIG_OPLUS_FEATURE_PMIC_MONITOR)     += oplus_pmic_monitor/
 obj-$(CONFIG_OPLUS_FEATURE_PMIC_MONITOR_MTK)     += oplus_pmic_monitor_mtk/
 obj-$(CONFIG_OPLUS_FEATURE_SAUPWK)     += oplus_saupwk/
@@ -41,9 +37,6 @@ obj-$(CONFIG_OPLUS_FEATURE_ACM)     += acm/
 #ifdef OPLUS_FEATURE_THEIA
 obj-$(CONFIG_OPLUS_FEATURE_THEIA)     += theia/
 #endif /* OPLUS_FEATURE_THEIA */
-#ifdef OPLUS_FEATURE_SELINUX_CONTROL_LOG
-obj-$(CONFIG_SECURITY_SELINUX) += selinux/
-#endif /* OPLUS_FEATURE_SELINUX_CONTROL_LOG */
 #ifdef OPLUS_FEATURE_MISC
 obj-y += misc/
 #endif /* OPLUS_FEATURE_MISC */
