@@ -62,8 +62,8 @@ class GpioObj(ModuleObj):
         ops = cp.options('GPIO')
         for op in ops:
             value = cp.get('GPIO', op)
-            list = re.split(r' +|\t+', value)
-            tmp_list = list[0:len(list)-2]
+            lst = re.split(r' +|\t+', value)
+            tmp_list = lst[0:len(lst)-2]
             temp = []
             for item in tmp_list:
                 str = item[6:len(item)-1]
@@ -71,7 +71,7 @@ class GpioObj(ModuleObj):
             GpioData._modeMap[op] = temp
 
             data = GpioData()
-            data.set_smtNum(int(list[len(list)-1]))
+            data.set_smtNum(int(lst[len(lst)-1]))
             ModuleObj.set_data(self, op.lower(), data)
 
         if cp.has_option('Chip Type', 'GPIO_COLUMN_ENABLE'):
@@ -405,13 +405,13 @@ class GpioObj(ModuleObj):
                         regExp = '[_A-Z0-9:]*%s[_A-Z0-9:]*' %(item.upper())
                         pat = re.compile(regExp)
                         for i in range(0, GpioData._modNum):
-                            list = value.get_modeVec()
+                            lst = value.get_modeVec()
                             mode_name = GpioData.get_modeName(key, i)
 
-                            if list[i] == '1':
+                            if lst[i] == '1':
                                 if mode_name.find('//') != -1:
                                     mode_name = mode_name.split('//')[0]
-                            elif list[i] == '2':
+                            elif lst[i] == '2':
                                 if mode_name.find('//') != -1:
                                     mode_name = mode_name.split('//')[1]
 
@@ -424,16 +424,16 @@ class GpioObj(ModuleObj):
                                 break
 
                     if not value.get_eintMode():
-                        list = value.get_modeVec()
+                        lst = value.get_modeVec()
                         for i in range(0,GpioData._modNum):
                             mode_name = GpioData.get_modeName(key, i)
 
-                            if list[i] == '0':
+                            if lst[i] == '0':
                                 continue
-                            elif list[i] == '1':
+                            elif lst[i] == '1':
                                 if mode_name.find('//') != -1:
                                     mode_name = mode_name.split('//')[0]
-                            elif list[i] == '2':
+                            elif lst[i] == '2':
                                 if mode_name.find('//') != -1:
                                     mode_name = mode_name.split('//')[1]
 
