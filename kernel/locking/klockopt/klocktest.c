@@ -220,7 +220,7 @@ static int busy_wait_B(void *data)
 	return 0;
 }
 
-static busy_wait_C(void *data)
+static int busy_wait_C(void *data)
 {
 	while (true) {
 		event_trace_printk(tracing_mark_write_addr, "B|%d|acquire_C\n",
