@@ -2,7 +2,7 @@
 clear
 function compile() 
 {
-echo InfixKernel-spaced, CODENAMED - spaced
+echo COSMOS, CODENAMED - spaced
 echo
 sleep 3 >/dev/null
 source ~/.bashrc && source ~/.profile
@@ -10,7 +10,7 @@ export LC_ALL=C && export USE_CCACHE=1
 ccache -M 100G >/dev/null
 TANGGAL=$(date +"%Y%m%d-%H")
 export ARCH=arm64
-export KBUILD_BUILD_HOST=InfixKernel-spaced
+export KBUILD_BUILD_HOST=COSMOS
 export KBUILD_BUILD_USER="HELLINFIX"
 
 sudo apt install -y libelf-dev libarchive-tools zstd flex bc ccache
@@ -75,9 +75,9 @@ rm -rf AnyKernel
 git clone --depth=1 https://github.com/HELLINFIX/AnyKernel3 AnyKernel
 cp out/arch/arm64/boot/Image.gz-dtb AnyKernel
 cd AnyKernel
-zip -r9 InfixKernel-spaced-${TANGGAL}.zip *
+zip -r9 COSMOS-${TANGGAL}.zip *
 curl -sL https://git.io/file-transfer | sh
-./transfer fio InfixKernel-spaced-${TANGGAL}.zip
+./transfer fio COSMOS-${TANGGAL}.zip
 cd ../
 fi
 }
